@@ -1,33 +1,41 @@
 {
-	"name": "rest-fastify-rethinkdb",
-	"version": "1.0.0",
-	"description": "CrudJS implemented as a REST API, using Fastify and RethinkDB.",
-	"main": "index.js",
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"start": "node src/server",
-		"dev": "nodemon src/server"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/crudjs/rest-fastify-rethinkdb.git"
-	},
-	"keywords": [],
-	"author": "",
-	"license": "Apache 2.0",
-	"bugs": {
-		"url": "https://github.com/crudjs/rest-fastify-rethinkdb/issues"
-	},
-	"homepage": "https://github.com/crudjs/rest-fastify-rethinkdb#readme",
-	"dependencies": {
-		"fastify": "^0.30.2"
-	},
-	"devDependencies": {
-		"eslint-config-standard": "^10.2.1",
-		"eslint-plugin-import": "^2.8.0",
-		"eslint-plugin-node": "^5.2.0",
-		"eslint-plugin-promise": "^3.6.0",
-		"eslint-plugin-standard": "^3.0.1",
-		"nodemon": "^1.12.1"
-	}
+  "name": "rest-fastify-rethinkdb",
+  "version": "1.0.0",
+  "description":
+    "CrudJS implemented as a REST API, using Fastify and RethinkDB.",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint ./ --cache --ignore-pattern .gitignore",
+    "pretest": "npm run lint",
+    "test": "tap --cov src/*.spec.js src/**/*.spec.js",
+    "dev": "nodemon src/server",
+    "start": "node src/server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crudjs/rest-fastify-rethinkdb.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/crudjs/rest-fastify-rethinkdb/issues"
+  },
+  "homepage": "https://github.com/crudjs/rest-fastify-rethinkdb#readme",
+  "dependencies": {
+    "fastify": "^0.30.2",
+    "fastify-helmet": "^1.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.9.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.0",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "minimist": "^1.2.0",
+    "nodemon": "^1.12.1",
+    "request": "^2.83.0",
+    "tap": "^10.7.2"
+  }
 }
