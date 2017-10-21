@@ -5,11 +5,11 @@
     "CrudJS implemented as a REST API, using Fastify and RethinkDB.",
   "main": "index.js",
   "scripts": {
-    "test": "node src/server.spec",
-    "start": "node src/server",
-    "dev": "nodemon src/server",
     "lint": "eslint ./ --cache --ignore-pattern .gitignore",
-    "pretest": "npm run lint"
+    "pretest": "npm run lint",
+    "test": "tap --cov src/*.spec.js src/**/*.spec.js",
+    "dev": "nodemon src/server",
+    "start": "node src/server"
   },
   "repository": {
     "type": "git",
