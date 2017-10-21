@@ -59,3 +59,5 @@ typings/
 
 
 \.vscode/
+
+src/\.DS_Store
