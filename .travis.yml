@@ -6,5 +6,7 @@ cache:
     - "node_modules"
 before_install:
   - npm install -g greenkeeper-lockfile@1
-before_script: greenkeeper-lockfile-update
+before_script:
+  - greenkeeper-lockfile-update
+  - docker run --name rdb -v "$PWD:/data" -p 8080:8080 -p 28015:28015 -d rethinkdb
 after_script: greenkeeper-lockfile-upload

@@ -1,0 +1,26 @@
+version: '3'
+services:
+  rdb:
+    image: rethinkdb:latest
+    ports:
+      - 8080:8080
+      - 28015:28015
+  crudjs-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - NODE_ENV=development
+    environment:
+      - RDB_HOST=rdb
+      - RDB_PORT=28015
+    ports:
+      - 3000:3000
+    depends_on:
+      - rdb
+    links:
+      - rdb:rdb
+    volumes:
+      - .:/home/node/app
+      - /home/node/app/node_modules
+    command: npm run dev

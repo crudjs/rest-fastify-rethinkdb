@@ -61,3 +61,5 @@ typings/
 \.vscode/
 
 src/\.DS_Store
+
+rethinkdb_data/

@@ -1,28 +1,15 @@
-const t = require('tap')
-const test = t.test
-const request = require('request')
+const { test } = require('ava')
+const request = require('axios')
 const server = require('./server')
 
 // Run the server
 server.start({ port: 0 }, (err, fastify) => {
-  t.error(err)
-
-  test('The server should start', t => {
-    t.plan(4)
-    // Perform the request
-    request(
-      {
-        method: 'GET',
-        uri: `http://localhost:${fastify.server.address().port}/status`
-      },
-      (err, response, body) => {
-        // Unit test
-        t.error(err)
-        t.strictEqual(response.statusCode, 200)
-        t.strictEqual(response.headers['content-length'], '' + body.length)
-        t.deepEqual(JSON.parse(body), { status: 'OK' })
-        fastify.close()
-      }
+  test('The app should start up without issues', async t => {
+    if (err) t.fail()
+    const response = await request.get(
+      `http://localhost:${fastify.server.address().port}/status`
     )
+    t.is(response.status, 200)
+    t.deepEqual(response.data, { status: 'OK' })
   })
 })
