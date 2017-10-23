@@ -16,4 +16,21 @@ const getAll = async entity => {
   }
 }
 
-module.exports = { getAll }
+const saveOne = async (entity, object) => {
+  try {
+    const tableList = await rdb.tableList().run()
+    if (!tableList.includes(entity)) {
+      await rdb.tableCreate(entity).run()
+    }
+    await rdb
+      .table(entity)
+      .insert(object)
+      .run()
+    return
+  } catch (err) {
+    console.error(err)
+    return err
+  }
+}
+
+module.exports = { getAll, saveOne }

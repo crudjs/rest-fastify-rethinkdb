@@ -1,3 +1,6 @@
+const slug = require('slug')
+const moment = require('moment')
+
 const db = require('../connectors/db')
 const schema = require('./entries.schema')
 
@@ -16,5 +19,18 @@ module.exports = async (fastify, options) => {
     //     cheers: 0
     //   }
     // ])
+  })
+  fastify.post('/entries', schema, async (req, reply) => {
+    const entryToSave = Object.assign({}, req.body, {
+      id: slug(req.body.title, { lower: true }),
+      cheers: 0,
+      created_at: moment()
+        .seconds(0)
+        .milliseconds(0)
+        .toISOString()
+    })
+    await db.saveOne('entry', entryToSave)
+    reply.code(201)
+    return {}
   })
 }

@@ -1,13 +1,13 @@
 {
   "name": "rest-fastify-rethinkdb",
   "version": "1.0.0",
-  "description":
-    "CrudJS implemented as a REST API, using Fastify and RethinkDB.",
+  "description": "CrudJS implemented as a REST API, using Fastify and RethinkDB.",
   "main": "index.js",
   "scripts": {
     "lint": "eslint ./ --cache --ignore-pattern .gitignore",
     "pretest": "npm run lint",
     "test": "ava src/*.spec.js src/**/*.spec.js",
+    "test:dev": "ava src/*.spec.js src/**/*.spec.js --watch",
     "dev": "nodemon src/server",
     "start": "node src/server"
   },
@@ -25,7 +25,9 @@
   "dependencies": {
     "fastify": "^0.30.2",
     "fastify-helmet": "^1.0.1",
-    "rethinkdbdash": "^2.3.31"
+    "moment": "^2.19.1",
+    "rethinkdbdash": "^2.3.31",
+    "slug": "^0.9.1"
   },
   "devDependencies": {
     "ava": "^0.22.0",
