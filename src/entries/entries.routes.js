@@ -20,7 +20,7 @@ module.exports = async (fastify, options) => {
     //   }
     // ])
   })
-  fastify.post('/entries', schema, async (req, reply) => {
+  fastify.post('/entries', async (req, reply) => {
     const entryToSave = Object.assign({}, req.body, {
       id: slug(req.body.title, { lower: true }),
       cheers: 0,

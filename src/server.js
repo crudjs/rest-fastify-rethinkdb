@@ -5,7 +5,8 @@ const helmet = require('fastify-helmet')
 fastify.register(helmet)
 fastify.register([
   require('./status/status.routes'),
-  require('./entries/entries.routes')
+  require('./entries/entries.routes'),
+  require('./authors/authors.routes')
 ])
 
 const start = (opts, callback) => {
