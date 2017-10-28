@@ -1,6 +1,5 @@
 const { test } = require('ava')
 const request = require('axios')
-const moment = require('moment')
 
 const server = require('../server')
 
