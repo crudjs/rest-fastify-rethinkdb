@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/crudjs/rest-fastify-rethinkdb#readme",
   "dependencies": {
-    "fastify": "^0.30.2",
+    "fastify": "^1.13.2",
     "fastify-helmet": "^1.0.1",
     "moment": "^2.19.1",
     "rethinkdbdash": "^2.3.31",
